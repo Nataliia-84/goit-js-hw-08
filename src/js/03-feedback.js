@@ -1,3 +1,5 @@
+import throttle from 'lodash.throttle';
+
 const formEl=document.querySelector('.feedback-form')
 console.log(formEl);
 
@@ -10,15 +12,16 @@ initForm()
 
 
 
-formEl.addEventListener('input', onClickInput);
+formEl.addEventListener('input', throttle(onClickInput, 500));
 
 //при заповненні форми записую в localStorage дані input і textarea
 
 function onClickInput(event){
    
     filds[event.target.name]=event.target.value;
-    // console.log(filds)
-    localStorage.setItem('feedback-form-state', JSON.stringify(filds))
+    console.log(filds)
+    localStorage.setItem('feedback-form-state', JSON.stringify(filds));
+    
 };
 
 
@@ -29,15 +32,17 @@ function onClickInput(event){
 
 function initForm(){
     let formsFild = localStorage.getItem('feedback-form-state')
-    // console.log(formsFild)
+    console.log(formsFild)
     if(formsFild){
         formsFild=JSON.parse(formsFild);
         // console.log(formsFild);
         Object.entries(formsFild).forEach(([name,value])=>{
-            filds[name]=value
+            filds[name]=value;
            formEl.elements[name].value=value})
       
 }
+           
+
 
 }
 
@@ -49,13 +54,13 @@ function onClickForm(event){
     if(formEl.elements.email.value.trim()==="" || formEl.elements.message.value.trim()===""){
         alert(" Всі поля потрібно заповнити")
         
-    } else{
-        formEl.elements.email.value="" ;
+    } 
+    
+       formEl.elements.email.value="";
         formEl.elements.message.value="";
         localStorage.removeItem('feedback-form-state')
         
-    }
-
+  
     
 };
 
