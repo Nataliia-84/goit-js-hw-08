@@ -31,12 +31,12 @@ function onClickInput(event){
 
 function initForm(){
     let formsFild = localStorage.getItem('feedback-form-state')
-    console.log(formsFild)
+    // console.log(formsFild)
     if(formsFild){
         formsFild=JSON.parse(formsFild);
         // console.log(formsFild);
         Object.entries(formsFild).forEach(([name,value])=>{
-            filds[name]=value;
+            // filds[name]=value;
            formEl.elements[name].value=value})
       
 }
