@@ -59,7 +59,5 @@ function onClickForm(event){
         formEl.elements.message.value="";
         localStorage.removeItem('feedback-form-state')
         
-  
-    
 };
 
