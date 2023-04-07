@@ -11,7 +11,6 @@ const filds = {};
 initForm()
 
 
-
 formEl.addEventListener('input', throttle(onClickInput, 500));
 
 //при заповненні форми записую в localStorage дані input і textarea
