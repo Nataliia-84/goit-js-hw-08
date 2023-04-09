@@ -1,15 +1,19 @@
+//  імпортую бібліотеки
+
 import Player from '@vimeo/player';
 import throttle from 'lodash.throttle';
 
+// перевіряю чи підтянюлися бібліотеки
 console.log(Player)
+console.log(throttle)
+
 const iframe=document.querySelector('#vimeo-player')
-console.log(iframe)
 
 const KEY_LOCALE="videoplayer-current-time"
+
 const player = new Player(iframe);
 
-
-
+// виношу у змінну функцію, для того щоб у player.on її затормозити
 const currentTime = function(data) {
     
     {
@@ -19,14 +23,14 @@ const currentTime = function(data) {
     }
 data.seconds;
 
-console.log(data.seconds)
 localStorage.setItem('KEY_LOCALE',JSON.stringify(data.seconds))
 
 }
 
-
 player.on('timeupdate', throttle(currentTime, 1000));
 
-console.log(localStorage.getItem(JSON.parse('KEY_LOCALE')))
+// записую getItem в змінну, привожу до числа для того щоб можна було записати час в фунцію setCurrentTime
 
+let time = Number(localStorage.getItem('KEY_LOCALE'))
 
+player.setCurrentTime(time)
