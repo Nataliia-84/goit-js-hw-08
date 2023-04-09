@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@swc/helpers": "^0.5.0",
+    "@vimeo/player": "^2.18.0",
     "lodash.throttle": "^4.1.1",
     "modern-normalize": "^1.1.0",
     "simplelightbox": "^2.13.0"
@@ -29,6 +30,6 @@
     "parcel-reporter-clean-dist": "^1.0.4",
     "posthtml-include": "^1.7.4"
   },
-  "browserslist": "> 0.5%, last 2 versions, not dead"
-  
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "main": "index.js"
 }
