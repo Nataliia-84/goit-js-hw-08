@@ -8,7 +8,7 @@ console.log(formEl);
 const filds = {};
 
 // викликаю ініціалізацію форми
-// initForm()
+initForm()
 
 
 formEl.addEventListener('input', throttle(onClickInput, 500));
